@@ -306,18 +306,23 @@ const mulaiTimer = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-yellow-400 selection:text-blue-950">
+  <div class="min-h-screen bg-[#071426] text-slate-200 font-sans selection:bg-cyan-300 selection:text-[#071426]">
     
-    <!-- NAVBAR (Glassmorphism + Yellow Accent) -->
-    <nav class="bg-slate-950/80 backdrop-blur-lg border-b border-blue-900/40 p-4 sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 class="text-2xl font-black text-white italic tracking-widest cursor-pointer hover:scale-105 transition transform" @click="gantiHalaman('home')">
-          KECAPI <span class="text-yellow-400">TRANS</span>
-        </h1>
-        <div class="text-slate-300 font-semibold hidden md:flex space-x-8">
-          <button @click="gantiHalaman('home')" class="hover:text-yellow-400 transition-colors duration-300" :class="halamanSekarang === 'home' ? 'text-yellow-400' : ''">Beranda</button>
-          <button @click="gantiHalaman('cek-tiket')" class="hover:text-yellow-400 transition-colors duration-300" :class="halamanSekarang === 'cek-tiket' ? 'text-yellow-400' : ''">Cek Tiket</button>
-          <button @click="gantiHalaman('info-armada')" class="hover:text-yellow-400 transition-colors duration-300" :class="halamanSekarang === 'info-armada' ? 'text-yellow-400' : ''">Info Armada</button>
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-[#071426]/85 p-4 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between">
+        <button class="flex items-center gap-3 text-left" @click="gantiHalaman('home')">
+          <span class="flex size-10 items-center justify-center rounded-xl bg-cyan-300 font-black text-[#071426] shadow-lg shadow-cyan-300/20">K</span>
+          <span>
+            <span class="block text-lg font-black tracking-[0.16em] text-white">KECAPI</span>
+            <span class="block text-[10px] font-bold tracking-[0.28em] text-cyan-300">TRANS INDONESIA</span>
+          </span>
+        </button>
+        <div class="hidden items-center gap-8 text-sm font-semibold text-slate-300 md:flex">
+          <button @click="gantiHalaman('home')" class="transition-colors hover:text-cyan-300" :class="halamanSekarang === 'home' ? 'text-cyan-300' : ''">Beranda</button>
+          <button @click="gantiHalaman('cek-tiket')" class="transition-colors hover:text-cyan-300" :class="halamanSekarang === 'cek-tiket' ? 'text-cyan-300' : ''">Cek Tiket</button>
+          <button @click="gantiHalaman('info-armada')" class="transition-colors hover:text-cyan-300" :class="halamanSekarang === 'info-armada' ? 'text-cyan-300' : ''">Armada</button>
+          <button @click="gantiHalaman('home')" class="rounded-full bg-cyan-300 px-5 py-2.5 font-black text-[#071426] transition hover:bg-white">Pesan Sekarang</button>
         </div>
       </div>
     </nav>
@@ -327,43 +332,50 @@ const mulaiTimer = () => {
       
       <!-- ================= 1. HALAMAN HOME ================= -->
       <div v-if="halamanSekarang === 'home'" key="home">
-        <div class="relative bg-cover bg-center h-[500px] flex items-center justify-center overflow-hidden transition-all duration-1000 ease-in-out"
+        <div class="relative flex h-[530px] items-center overflow-hidden bg-cover bg-center transition-all duration-1000 ease-in-out"
              :style="{ backgroundImage: `url(${daftarGambar[indexGambar]})` }">
-          <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/70 to-slate-950"></div>
-          <div class="z-10 text-center px-4 -mt-16">
-            <h2 class="text-4xl md:text-6xl font-extrabold text-white mb-4 tracking-tight drop-shadow-2xl">
-              Level Baru <span class="text-yellow-400">Perjalanan</span>
-            </h2>
-            <p class="text-lg md:text-xl text-slate-300 font-medium max-w-2xl mx-auto drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-              Rasakan sensasi armada premium dengan privasi kelas atas. Lebih dari sekadar tiket, ini adalah pengalaman.
-            </p>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#071426] via-[#071426]/75 to-[#071426]/20"></div>
+          <div class="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-10">
+            <div class="max-w-2xl text-left">
+              <p class="mb-5 text-xs font-black uppercase tracking-[0.3em] text-cyan-300">Premium intercity travel</p>
+              <h2 class="mb-5 text-4xl font-black leading-[1.05] tracking-tight text-white md:text-7xl">
+                Perjalanan jauh,<br /><span class="text-cyan-300">dibuat lebih nyaman.</span>
+              </h2>
+              <p class="max-w-xl text-base leading-7 text-slate-300 md:text-lg">
+                Pesan tiket bus premium dengan armada modern, jadwal terpercaya, dan pengalaman perjalanan yang terasa personal.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 relative z-20 pb-20">
-          <div class="bg-blue-950/40 backdrop-blur-xl rounded-[2rem] shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-blue-900/50 p-8 md:p-10">
+        <div class="relative z-20 mx-auto -mt-24 max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+          <div class="rounded-[1.75rem] border border-white/10 bg-[#0d2340]/95 p-6 shadow-2xl shadow-black/30 backdrop-blur-xl md:p-8">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <div><p class="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Plan your journey</p><h3 class="mt-1 text-xl font-black text-white">Cari perjalanan terbaikmu</h3></div>
+              <span class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-400 md:block">Harga transparan · Kursi pilihan</span>
+            </div>
             <form @submit.prevent="cariJadwal" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
               <div>
                 <label class="block text-sm font-bold text-blue-200/70 mb-2 tracking-wide uppercase">Kota Asal</label>
-                <select v-model="asal" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
+                <select v-model="asal" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-cyan-300 focus:border-cyan-300 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
                   <option value="" disabled selected>Pilih Keberangkatan</option>
                   <option v-for="kota in Object.keys(daftarTitik)" :key="kota" :value="kota">{{ kota }}</option>
                 </select>
               </div>
               <div>
                 <label class="block text-sm font-bold text-blue-200/70 mb-2 tracking-wide uppercase">Kota Tujuan</label>
-                <select v-model="tujuan" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
+                <select v-model="tujuan" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-cyan-300 focus:border-cyan-300 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
                   <option value="" disabled selected>Pilih Destinasi</option>
                   <option v-for="kota in Object.keys(daftarTitik)" :key="kota" :value="kota">{{ kota }}</option>
                 </select>
               </div>
               <div>
                 <label class="block text-sm font-bold text-blue-200/70 mb-2 tracking-wide uppercase">Tanggal</label>
-                <input type="date" v-model="tanggal" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition text-white font-medium bg-slate-950/60 [color-scheme:dark]" />
+                <input type="date" v-model="tanggal" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-cyan-300 focus:border-cyan-300 outline-none transition text-white font-medium bg-slate-950/60 [color-scheme:dark]" />
               </div>
               <div>
                 <label class="block text-sm font-bold text-blue-200/70 mb-2 tracking-wide uppercase">Penumpang</label>
-                <select v-model="jumlahKursi" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
+                <select v-model="jumlahKursi" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-cyan-300 focus:border-cyan-300 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
                   <option value="1">1 Penumpang</option>
                   <option value="2">2 Penumpang</option>
                   <option value="3">3 Penumpang</option>
@@ -372,7 +384,7 @@ const mulaiTimer = () => {
               </div>
               <div>
                 <label class="block text-sm font-bold text-blue-200/70 mb-2 tracking-wide uppercase">Kelas</label>
-                <select v-model="kelas" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
+                <select v-model="kelas" class="w-full border border-blue-900/60 rounded-2xl p-4 focus:ring-2 focus:ring-cyan-300 focus:border-cyan-300 outline-none transition text-white font-medium bg-slate-950/60 appearance-none">
                   <option value="">Semua Kelas</option>
                   <option value="Executive">Executive</option>
                   <option value="Super Executive">Super Executive</option>
@@ -380,7 +392,7 @@ const mulaiTimer = () => {
                 </select>
               </div>
               <div>
-                <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-blue-950 font-black text-lg p-4 rounded-2xl shadow-[0_0_20px_rgba(250,204,21,0.3)] transition duration-300 transform hover:-translate-y-1">
+                <button type="submit" class="w-full bg-cyan-300 hover:bg-white text-[#071426] font-black text-lg p-4 rounded-2xl shadow-[0_0_24px_rgba(103,232,249,0.22)] transition duration-300 transform hover:-translate-y-1">
                   CARI TIKET
                 </button>
               </div>
